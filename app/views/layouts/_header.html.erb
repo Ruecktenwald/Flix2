@@ -2,9 +2,13 @@
   <div id="masthead">
     <h1><%= link_to 'Flix', root_path %></h1>
     <nav>
-      <p>
-      		<%= link_to "Sign Up", signup_path, class: "button" %> 
-      		<%= link_to "Sign In", new_session_path, class: "button" %> 
+      <p>	 
+      		<% if %>
+     		 	<%= link_to current_user.name, current_user %>
+    		<% else %>
+      			<%= link_to 'Sign Up', signup_path, class: 'button' %>
+      			<%= link_to 'Sign In', new_session_path, class: 'button' %>
+    		<% end %>
       </p>
     </nav>
   </div>
