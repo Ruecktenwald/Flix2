@@ -19,6 +19,8 @@ describe "Creating a new user" do
 
     expect(page).to have_text('Example User')
     expect(page).to have_text('Thanks for signing up!')
+    expect(page).not_to have_link('Sign In')
+    expect(page).not_to have_link('Sign Up')
   end
 
   it "does not save the user if it's invalid" do
@@ -30,10 +32,4 @@ describe "Creating a new user" do
 
     expect(page).to have_text('error')
   end
-  it "saves the user and shows the user's profile page" do    
-  # existing code
-
-  expect(page).not_to have_link('Sign In')
-  expect(page).not_to have_link('Sign Up')
-end
 end
