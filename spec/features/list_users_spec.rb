@@ -8,7 +8,6 @@ describe "Viewing the list of users" do
     user3 = User.create!(user_attributes(name: "Curly", email: "curly@example.com"))
 
     sign_in(user1)
-    
 
     visit users_url
 

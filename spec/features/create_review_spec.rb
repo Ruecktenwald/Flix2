@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 describe "Creating a new review" do
-
   before do
-  @user = User.create!(user_attributes)
-  sign_in(@user)
-end
+    @user = User.create!(user_attributes)
+    sign_in(@user)
+  end
 
   it "saves the review" do
     movie = Movie.create!(movie_attributes)
@@ -24,6 +23,7 @@ end
     expect(current_path).to eq(movie_reviews_path(movie))
 
     expect(page).to have_text("Thanks for your review!")
+    expect(page).to have_text(@user.name)
   end
 
   it "does not save the review if it's invalid" do

@@ -13,7 +13,7 @@ describe ReviewsController do
     end
 
     it "cannot access index" do
-      get :index, params: { movie_id: @movie } 
+      get :index, params: { movie_id: @movie }
 
       expect(response).to redirect_to(new_session_url)
     end
