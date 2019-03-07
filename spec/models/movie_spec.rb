@@ -189,6 +189,17 @@ describe "A movie" do
 
       expect(Movie.released).to eq([movie3, movie2, movie1])
     end
+    it "has fans" do
+  movie = Movie.new(movie_attributes)
+  fan1 = User.new(user_attributes(email: "larry@example.com"))
+  fan2 = User.new(user_attributes(email: "moe@example.com"))
+
+  movie.favorites.new(user: fan1)
+  movie.favorites.new(user: fan2)
+
+  expect(movie.fans).to include(fan1)
+  expect(movie.fans).to include(fan2)
+end
   end
 
   context "hits query" do

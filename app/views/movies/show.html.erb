@@ -1,3 +1,5 @@
+<% content_for(:title,@movie.title) %>
+
 <article id="movie" class="movie">
   <header>
     <%= link_to image_for(@movie) %>
@@ -12,7 +14,19 @@
   <h3 class="no-rule">
     <%= @movie.rating %> &bull; <%= @movie.duration %> 
   </h3>
-  
+  <p>
+    <%= pluralize(@fans.size, 'fan') %>
+    <% if current_user  %>
+          <% if @current_favorite %>
+          <%= button_to "UnFave", movie_favorite_path(@movie, @current_favorite), method: :delete %>
+        <%else %>
+          <%= button_to "Fave", movie_favorites_path(@movie) %>
+       <%end%>
+    <%end%>
+
+
+
+  </p>
   <h3>Cast</h3>
   <p>
     <%= @movie.cast %>
@@ -52,3 +66,32 @@
     </nav>
   </footer>
 </article>
+
+
+
+
+
+
+
+
+ <% content_for :side do%>
+    <% if @fans.any? %>
+  <h3>Fans</h3>
+  <ul>
+    <% @fans.each do |user| %>
+      <li>
+        <%= link_to user.name, user %>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+  
+
+
+<h3>Genres</h3>
+<ul>
+  <% @genres.each do |genre| %>
+    <li><%= genre.name %></li>
+  <% end %>
+</ul>
+<%end%>

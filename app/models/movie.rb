@@ -1,4 +1,10 @@
 class Movie < ApplicationRecord
+ has_many :favorites, dependent: :destroy
+ has_many :fans, through: :favorites, source: :user
+ has_many :reviews, dependent: :destroy
+ has_many :characterizations, dependent: :destroy
+ has_many :genres, through: :characterizations
+
   validates :title, :released_on, :duration, presence: true
 
   validates :description, length: { minimum: 25 }
@@ -14,7 +20,7 @@ class Movie < ApplicationRecord
 
   validates :rating, inclusion: { in: RATINGS }
 
-  has_many :reviews, dependent: :destroy
+ 
 
   def self.released
     where("released_on <= ?", Time.now).order("released_on desc")

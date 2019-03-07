@@ -38,7 +38,12 @@
         <%= f.label :director %>
         <%= f.text_field :director %>
       </li>
+       <li>
+      <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>
+    </li>
     </ol>
+   
+   
     <p>
       <%= f.submit %>
       <%= link_to "Cancel", movies_path, class: 'button' %>

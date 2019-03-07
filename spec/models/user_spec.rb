@@ -126,5 +126,16 @@ describe "A user" do
   expect(user.reviews).to include(review1)
   expect(user.reviews).to include(review2)
 end
+it "has favorite movies" do
+  user = User.new(user_attributes)
+  movie1 = Movie.new(movie_attributes(title: "Iron Man"))
+  movie2 = Movie.new(movie_attributes(title: "Superman"))
+
+  user.favorites.new(movie: movie1)
+  user.favorites.new(movie: movie2)
+
+  expect(user.favorite_movies).to include(movie1)
+  expect(user.favorite_movies).to include(movie2)
+end
   end
 end

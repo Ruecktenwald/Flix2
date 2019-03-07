@@ -1,8 +1,12 @@
+<%content_for(:title,@user.name)%>
+
 <article id="user">
   <header>
     <h1><%= @user.name %></h1>
     <h2><%= mail_to(@user.email) %></h2>
   </header>
+
+
     <% if @reviews.any? %>
   <h3>Reviews</h3>
   <ol id="reviews">
@@ -30,3 +34,21 @@
   	</nav>
   </footer>
 </article>
+
+
+
+
+
+
+ <% content_for :side do %>
+    <% if @favorite_movies.any? %>
+  <h3><%=pluralize(@favorite_movies.size, 'Favorite Movie')%></h3>
+  <ul>
+    <% @favorite_movies.each do |movie| %>
+      <li>
+        <%= link_to movie.title, movie %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<%end%>
