@@ -104,6 +104,8 @@ Movie.create!([
   }
 ])
 
+User.create!(name: "Peter", email:"peter@example.com", password: "secret1", password_confirmation: "secret1")
+
 movie = Movie.find_by(title: 'Iron Man')
 movie.reviews.create!(name: "Roger Ebert", stars: 3, comment: "I laughed, I cried, I spilled my popcorn!")
 movie.reviews.create!(name: "Gene Siskel", stars: 5, comment: "I'm a better reviewer than he is.")
