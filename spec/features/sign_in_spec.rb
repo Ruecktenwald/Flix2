@@ -11,9 +11,9 @@ describe "Signing in" do
 
     expect(page).to have_field("Email")
     expect(page).to have_field("Password")
-  end
+end
 
-  it "signs in the user if the email/password combination is valid" do
+it "signs in the user if the email/password combination is valid" do
     user = User.create!(user_attributes)
 
     visit root_url
@@ -33,9 +33,9 @@ describe "Signing in" do
     expect(page).not_to have_link('Sign In')
     expect(page).not_to have_link('Sign Up')
     expect(page).to have_link('Sign Out')
-  end
+end
 
-  it "does not sign in the user if the email/password combination is invalid" do
+it "does not sign in the user if the email/password combination is invalid" do
     user = User.create!(user_attributes)
 
     visit root_url
@@ -52,9 +52,9 @@ describe "Signing in" do
     expect(page).to have_link('Sign In')
     expect(page).to have_link('Sign Up')
     expect(page).not_to have_link('Sign Out')
-  end
+end
 
-  it "redirects to the intended page" do
+it "redirects to the intended page" do
     user = User.create!(user_attributes)
 
     visit users_url
@@ -64,5 +64,5 @@ describe "Signing in" do
     sign_in(user)
 
     expect(current_path).to eq(users_path)
-  end
+end
 end

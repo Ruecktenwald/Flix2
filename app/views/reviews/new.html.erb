@@ -2,16 +2,16 @@
   <h1>New Review for <%= link_to @movie.title, @movie %></h2>
 </header>
 
-<%= form_for [@movie, @review] do |f| %>
+  <%= form_for [@movie, @review] do |f| %>
   <%= render "shared/errors", object: @review %>
   <fieldset>
     <ol>
       <li class="required stars">
         <%= f.label :stars %>
         <% Review::STARS.each do |star| %>
-          <span class="star">
-            <%= f.radio_button :stars, star %> <%= star %>
-          </span>
+        <span class="star">
+          <%= f.radio_button :stars, star %> <%= star %>
+        </span>
         <% end %>     
       </li>
       <li class="required">
@@ -24,4 +24,4 @@
       <%= link_to "Cancel", @movie, class: 'button' %>
     </p>
   </fieldset>
-<% end %>
+  <% end %>

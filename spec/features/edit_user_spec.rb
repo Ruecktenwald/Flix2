@@ -23,9 +23,9 @@ describe "Editing a user" do
 
     expect(page).to have_text("Updated User Name")
     expect(page).to have_text('Account successfully updated!')
-  end
+end
 
-  it "does not update the user if it's invalid" do
+it "does not update the user if it's invalid" do
     user = User.create!(user_attributes)
 
     sign_in(user)
@@ -37,6 +37,6 @@ describe "Editing a user" do
     click_button "Update Account"
 
     expect(page).to have_text('error')
-  end
+end
 
 end

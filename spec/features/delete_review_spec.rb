@@ -21,5 +21,5 @@ describe "Deleting a review" do
     
     expect(page).to have_text("Review successfully deleted!")
     expect(page).not_to have_text(roger.name)
-  end
+end
 end

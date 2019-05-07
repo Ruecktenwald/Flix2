@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%=page_title%></title>
-    <%= csrf_meta_tags %>
+<head>
+  <title><%=page_title%></title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= render "layouts/header" %>
+<body>
+  <%= render "layouts/header" %>
 
-    <div id="wrapper">
+  <div id="wrapper">
 
-      <%= render "layouts/flashes" %>
-      
-      <div id="container">
-        <section id="sidebar">
-          <%= render "layouts/sidebar" %>
-        </section>
-        <section id="content">
-          <%= yield %>
-        </section>
-      </div>
-
+    <%= render "layouts/flashes" %>
+    
+    <div id="container">
+      <section id="sidebar">
+        <%= render "layouts/sidebar" %>
+      </section>
+      <section id="content">
+        <%= yield %>
+      </section>
     </div>
 
-    <%= render "layouts/footer" %>
-  </body>
+  </div>
+
+  <%= render "layouts/footer" %>
+</body>
 </html>

@@ -36,7 +36,7 @@ describe "Editing a movie" do
     fill_in 'Title', with: " "
     
     click_button 'Update Movie' 
-        
+    
     expect(page).to have_text('error')
   end
 

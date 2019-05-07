@@ -163,7 +163,7 @@ describe "A movie" do
 
   it "deletes associated reviews" do
     movie = Movie.create!(movie_attributes)
- 
+    
     review = movie.reviews.new(review_attributes)
     review.user = User.create!(user_attributes)
     review.save!
@@ -263,4 +263,4 @@ describe "A movie" do
     end
   end
 end
-    
+

@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     if @review.save
       redirect_to movie_reviews_path(@movie),
-        notice: "Thanks for your review!"
+      notice: "Thanks for your review!"
     else
       render :new
     end
@@ -27,14 +27,14 @@ class ReviewsController < ApplicationController
     redirect_to movie_reviews_path(@movie), notice: "Review successfully deleted!"
   end
 
-private
+  private
 
   def review_params
     params.require(:review).permit(:comment, :stars)
   end
 
   def set_movie
-  @movie = Movie.find_by!(slug: params[:movie_id])
+    @movie = Movie.find_by!(slug: params[:movie_id])
   end
 
 end

@@ -14,11 +14,11 @@ class FavoritesController < ApplicationController
 	end
 
 
-private
+	private
 
 
 	def set_movie
-  	@movie = Movie.find_by!(slug: params[:movie_id])
+		@movie = Movie.find_by!(slug: params[:movie_id])
 	end
 
 

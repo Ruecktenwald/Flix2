@@ -16,21 +16,21 @@ class MoviesController < ApplicationController
     when 'recent'
       @movies = Movie.recent
     else
-    @movies = Movie.released
-  end
+      @movies = Movie.released
+    end
   end
 
   def show
     
     @fans = @movie.fans
-      if current_user
+    if current_user
       @current_favorite = current_user.favorites.find_by(movie_id: @movie.id)
     end
     @genres = @movie.genres
   end
 
   def edit
- 
+   
   end
 
   def update
@@ -61,11 +61,11 @@ class MoviesController < ApplicationController
     redirect_to movies_url, alert: "Movie successfully deleted!"
   end
 
-private
+  private
 
   def movie_params
     params.require(:movie).
-      permit(:title, :description, :rating, :released_on, :total_gross, :cast, :director, :duration, :image_file_name, genre_ids: [])
+    permit(:title, :description, :rating, :released_on, :total_gross, :cast, :director, :duration, :image_file_name, genre_ids: [])
   end
   def set_movie
     @movie = Movie.find_by!(slug: params[:id])

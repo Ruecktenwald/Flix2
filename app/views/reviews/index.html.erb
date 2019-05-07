@@ -2,19 +2,19 @@
   <h1>Reviews for <%= link_to(@movie.title, @movie) %></h2>
 </header>
 
-<ol id="reviews">
-  <% @reviews.each do |review| %>
+  <ol id="reviews">
+    <% @reviews.each do |review| %>
     <li>
       <span class="review"><%= pluralize(review.stars, 'star') %></span>
       <span class="user">by <%= link_to review.user.name, review.user %></span>
       <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
       <%= link_to delete_review_image, [@movie, review],
-                  id: "#{dom_id(review)}_delete",
-                  method: :delete, 
-                  data: { confirm: 'Are you sure?' } %>
+      id: "#{dom_id(review)}_delete",
+      method: :delete, 
+      data: { confirm: 'Are you sure?' } %>
       <p>
         &quot;<%= review.comment %>&quot;
       </p>
     </li>
-  <% end %>
-</ol>
+    <% end %>
+  </ol>
